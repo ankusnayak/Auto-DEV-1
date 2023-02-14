@@ -1,0 +1,22 @@
+name: create-deployment-for-branch
+
+on:
+  push:
+    branches:
+      - 'dev'
+      - 'stage'
+      - 'prod'
+
+jobs:
+  create-deployment:
+    name: Create deployment for branch
+    runs-on: ubuntu-latest
+    steps:
+      # - uses: actions/checkout@v3.3.0
+      - name: Create GitHub deployment for '${{ github.ref_name }}'
+        uses: chrnorm/deployment-action@v2
+        id: deployment
+        with:
+          token: '${{ github.token }}'
+          environment: ${{ github.ref_name }}
+      
