@@ -17,7 +17,7 @@ jobs:
         id: deployment
         with:
           token: '${{ github.token }}'
-          environment: "dev"
+          environment: dev
           url: https://github.com
 
   stage-deploy:
@@ -30,9 +30,9 @@ jobs:
         id: deployment
         with:
           token: '${{ github.token }}'
-          environment: 'stage'
+          environment: stage
           url: https://github.com
-          
+
 
   prod-deploy:
     runs-on: "ubuntu-latest"
@@ -44,7 +44,7 @@ jobs:
         id: deployment
         with:
           token: '${{ github.token }}'
-          environment: 'prod'
+          environment: prod
           url: https://github.com
 
 
