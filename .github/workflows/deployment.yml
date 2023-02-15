@@ -3,6 +3,10 @@ name: deploy
 on:
   deployment
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   TARGET_ENV: ${{ github.event.deployment.environment }}
 
