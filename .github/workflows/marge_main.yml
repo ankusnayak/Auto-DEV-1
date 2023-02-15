@@ -10,6 +10,7 @@ on:
 jobs:
   dev-deploy:
     runs-on: "ubuntu-latest"
+    environment: dev
     steps:
       # - uses: actions/checkout@v3.3.0
       - name: Create GitHub deployment for "dev"
@@ -17,20 +18,21 @@ jobs:
         id: deployment
         with:
           token: '${{ github.token }}'
-          environment: dev
+          # environment: dev
           url: https://github.com
 
   stage-deploy:
     runs-on: "ubuntu-latest"
     needs: [dev-deploy]
     if: github.ref == 'refs/heads/main'
+    environment: stage
     steps:
       - name: Create GitHub deployment for "stage"
         uses: chrnorm/deployment-action@v2
         id: deployment
         with:
           token: '${{ github.token }}'
-          environment: stage
+          # environment: stage
           url: https://github.com
 
 
@@ -38,13 +40,14 @@ jobs:
     runs-on: "ubuntu-latest"
     needs: [dev-deploy,stage-deploy]
     if: github.ref == 'refs/heads/main'
+    environment: prod
     steps:
       - name: Create GitHub deployment for "prod"
         uses: chrnorm/deployment-action@v2
         id: deployment
         with:
           token: '${{ github.token }}'
-          environment: prod
+          # environment: prod
           url: https://github.com
 
 
