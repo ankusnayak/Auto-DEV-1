@@ -6,6 +6,9 @@ on:
       # - 'GC-**'
   workflow_dispatch:
   
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   dev-deploy:
