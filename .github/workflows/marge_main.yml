@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - 'GC-**'
+      # - 'GC-**'
   workflow_dispatch:
   
 
