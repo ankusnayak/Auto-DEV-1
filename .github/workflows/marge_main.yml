@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   
 concurrency:
-  group: deploymeny-group
+  group: dev-group
   cancel-in-progress: false
 
 jobs:
