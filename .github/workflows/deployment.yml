@@ -8,6 +8,12 @@ env:
   TARGET_ENV: ${{ github.event.deployment.environment }}
 
 jobs:
+
+  print-job:
+    name: Print-Job
+    run: |
+      echo ${{ github.event.deployment.environment }}
+
   deploy:
     name: Deploy
     # permissions:
