@@ -28,7 +28,7 @@ jobs:
           # environment: environment
       - name: Test
         run: |
-          echo ${{GITHUB_ENV}}
+          echo ${{environment}}
 
   stage-deploy:
     runs-on: "ubuntu-latest"
