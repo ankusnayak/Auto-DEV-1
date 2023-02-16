@@ -9,12 +9,12 @@ env:
 
 jobs:
 
-  print-job:
+  Test-Job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print-Job
+      - name: Print-ENV
         run: |
-          echo ${{ env.TARGET_ENV }}
+          echo "${{ env.TARGET_ENV }}"
 
   deploy:
     name: Deploy
