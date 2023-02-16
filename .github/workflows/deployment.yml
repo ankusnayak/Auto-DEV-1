@@ -10,8 +10,8 @@ env:
 jobs:
   deploy:
     name: Deploy
-    permissions:
-      deployments: write
+    # permissions:
+    #   deployments: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo
@@ -39,7 +39,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: '${{ github.token }}'
-          # environment-url: http://my-app-url.com
+          # environment-url: ${{ github.event. }}
           state: 'failure'
           # deployment-id: ${{ steps.deployment.outputs.deployment_id }}
           deployment-id: ${{ github.event.deployment.id }}
