@@ -10,9 +10,10 @@ env:
 jobs:
 
   print-job:
-    name: Print-Job
-    run: |
-      echo ${{ github.event.deployment.environment }}
+    - name: Print-Job
+      steps:
+        run: |
+          echo ${{ github.event.deployment.environment }}
 
   deploy:
     name: Deploy
