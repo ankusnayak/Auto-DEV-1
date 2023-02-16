@@ -21,6 +21,7 @@ jobs:
       - name: Create GitHub deployment for "dev"
         uses: chrnorm/deployment-action@v2
         id: deployment
+        token: '${{ github.token }}'
         # with:
         #   token: '${{ github.token }}'
           # environment-url: https://github.com
@@ -38,6 +39,7 @@ jobs:
       - name: Create GitHub deployment for "stage"
         uses: chrnorm/deployment-action@v2
         id: deployment
+        token: '${{ github.token }}'
         # with:
         #   token: '${{ github.token }}'
           # environment-url: https://github.com
@@ -57,6 +59,7 @@ jobs:
       - name: Create GitHub deployment for "prod"
         uses: chrnorm/deployment-action@v2
         id: deployment
+        token: '${{ github.token }}'
         # with:
         #   token: '${{ github.token }}'
           # environment-url: https://github.com
