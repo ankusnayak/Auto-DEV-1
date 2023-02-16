@@ -10,10 +10,11 @@ env:
 jobs:
 
   print-job:
-    - name: Print-Job
-      steps:
-        run: |
-          echo ${{ env.TARGET_ENV }}
+    name: Print-Job
+    runs-on: ubuntu-latest
+    steps:
+      run: |
+        echo ${{ env.TARGET_ENV }}
 
   deploy:
     name: Deploy
