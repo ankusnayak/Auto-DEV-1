@@ -8,6 +8,14 @@ env:
   TARGET_ENV: ${{ github.event.deployment.environment }}
 
 jobs:
+
+  Test-Job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print-ENV
+        run: |
+          echo "${{ env.TARGET_ENV }}"
+
   deploy:
     name: Deploy
     # permissions:
