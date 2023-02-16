@@ -27,8 +27,7 @@ jobs:
           # environment-url: https://github.com
           # environment: environment
       - name: Test
-        run: |
-          echo ${{environment}}
+        run: env
 
   stage-deploy:
     runs-on: "ubuntu-latest"
