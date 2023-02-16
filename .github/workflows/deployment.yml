@@ -13,7 +13,7 @@ jobs:
     - name: Print-Job
       steps:
         run: |
-          echo ${{ github.event.deployment.environment }}
+          echo ${{ env.TARGET_ENV }}
 
   deploy:
     name: Deploy
