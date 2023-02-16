@@ -7,52 +7,62 @@ on:
   workflow_dispatch:
   
 concurrency:
-  group: ${{ github.ref }}
+  group: deploymeny-group
   cancel-in-progress: false
 
 jobs:
   dev-deploy:
     runs-on: "ubuntu-latest"
-    environment: dev
+    environment:
+      name: dev
+      url: https://github.com
     steps:
       - uses: actions/checkout@v3.3.0
       - name: Create GitHub deployment for "dev"
         uses: chrnorm/deployment-action@v2
         id: deployment
+        # token: '${{ github.token }}'
         with:
           token: '${{ github.token }}'
-          # environment: dev
-          url: https://github.com
+          # environment-url: https://github.com
+          # environment: environment
 
   stage-deploy:
     runs-on: "ubuntu-latest"
     needs: [dev-deploy]
     if: github.ref == 'refs/heads/main'
-    environment: stage
+    environment:
+      name: stage
+      url: https://github.com
     steps:
       - uses: actions/checkout@v3.3.0
       - name: Create GitHub deployment for "stage"
         uses: chrnorm/deployment-action@v2
         id: deployment
+        # token: '${{ github.token }}'
         with:
           token: '${{ github.token }}'
-          # environment: stage
-          url: https://github.com
+          # environment-url: https://github.com
+          # environment: environment
 
 
   prod-deploy:
+    name: "PROD Deploy"
     runs-on: "ubuntu-latest"
     needs: [dev-deploy,stage-deploy]
     if: github.ref == 'refs/heads/main'
-    environment: prod
+    environment:
+      name: prod
+      url: https://github.com
     steps:
       - uses: actions/checkout@v3.3.0
       - name: Create GitHub deployment for "prod"
         uses: chrnorm/deployment-action@v2
         id: deployment
+        # token: '${{ github.token }}'
         with:
           token: '${{ github.token }}'
-          # environment: prod
-          url: https://github.com
+          # environment-url: https://github.com
+          # environment: environment
 
 
