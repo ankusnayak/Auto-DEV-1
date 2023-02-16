@@ -24,7 +24,7 @@ jobs:
         with:
           token: '${{ github.token }}'
           # environment-url: https://github.com
-          # environment: environment
+          environment: environment
 
   stage-deploy:
     runs-on: "ubuntu-latest"
@@ -41,7 +41,7 @@ jobs:
         with:
           token: '${{ github.token }}'
           # environment-url: https://github.com
-          # environment: environment
+          environment: environment
 
 
 
@@ -60,6 +60,6 @@ jobs:
         with:
           token: '${{ github.token }}'
           # environment-url: https://github.com
-          # environment: environment
+          environment: environment
 
 
